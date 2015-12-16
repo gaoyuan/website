@@ -1,0 +1,14 @@
+name:              website
+version:           0.0.0
+cabal-version:     >= 1.8
+build-type:        Simple
+
+
+executable site
+    hs-source-dirs:  .
+    main-is:         site.hs
+    ghc-options:     -threaded -O2 -rtsopts -with-rtsopts=-N
+    build-depends:   base >= 4 && < 5
+                   , containers
+                   , hakyll
+                   , pandoc

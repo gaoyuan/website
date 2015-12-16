@@ -1,0 +1,14 @@
+dist*
+config/client_session_key.aes
+*.hi
+*.o
+.hsenv*
+.stack-work/
+.cabal-sandbox
+cabal.sandbox.config
+.dir-locals.el
+.DS_Store
+*.swp
+*.keter
+_cache
+.ghci
