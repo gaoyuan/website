@@ -74,21 +74,21 @@ main = hakyll $ do
                 >>= relativizeUrls
 
 
-    match "index.html" $ do
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< onlyPublished =<< loadAll "posts/*/index.md"
+    -- match "index.html" $ do
+    --     route idRoute
+    --     compile $ do
+    --         posts <- recentFirst =<< onlyPublished =<< loadAll "posts/*/index.md"
 
-            let indexCtx =
-                    listField "posts" (postCtx) (return posts)
-                    <> constField "title" "Home"
-                    <> mathCtx
-                    <> defaultContext
+    --         let indexCtx =
+    --                 listField "posts" (postCtx) (return posts)
+    --                 <> constField "title" "Home"
+    --                 <> mathCtx
+    --                 <> defaultContext
 
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
+    --         getResourceBody
+    --             >>= applyAsTemplate indexCtx
+    --             >>= loadAndApplyTemplate "templates/default.html" indexCtx
+    --             >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
 
@@ -122,7 +122,6 @@ urlstripCtx = field "url" $ \item -> do
     route <- getRoute (itemIdentifier item)
     return $ fromMaybe "/" $
         fmap (reverse . drop 10 . reverse) route
-
 
 myReaderOptions :: ReaderOptions
 myReaderOptions = defaultHakyllReaderOptions
