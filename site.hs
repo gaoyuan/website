@@ -63,7 +63,7 @@ main = hakyll $ do
             posts <- recentFirst =<< onlyPublished =<< loadAll "posts/*/index.md"
 
             let archiveCtx =
-                    listField "posts" (postCtx) (return posts)
+                    listField "posts" postCtx (return posts)
                     <> constField "title" "Archives"
                     <> mathCtx
                     <> defaultContext
