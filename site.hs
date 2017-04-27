@@ -73,22 +73,21 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
+    match "index.html" $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< onlyPublished =<< loadAll "posts/*/index.md"
 
-    -- match "index.html" $ do
-    --     route idRoute
-    --     compile $ do
-    --         posts <- recentFirst =<< onlyPublished =<< loadAll "posts/*/index.md"
+            let indexCtx =
+                    listField "posts" (postCtx) (return posts)
+                    <> constField "title" "高远 Yuan Gao"
+                    <> mathCtx
+                    <> defaultContext
 
-    --         let indexCtx =
-    --                 listField "posts" (postCtx) (return posts)
-    --                 <> constField "title" "Home"
-    --                 <> mathCtx
-    --                 <> defaultContext
-
-    --         getResourceBody
-    --             >>= applyAsTemplate indexCtx
-    --             >>= loadAndApplyTemplate "templates/default.html" indexCtx
-    --             >>= relativizeUrls
+            getResourceBody
+                >>= applyAsTemplate indexCtx
+                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+                >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
 
