@@ -80,7 +80,7 @@ main = hakyll $ do
 
             let indexCtx =
                     listField "posts" (postCtx) (return posts)
-                    <> constField "title" "高远 Yuan Gao"
+                    <> constField "home" "true"
                     <> mathCtx
                     <> defaultContext
 
@@ -106,7 +106,7 @@ mathCtx :: Context String
 mathCtx = field "mathjax" $ \item -> do
     metadata <- getMetadata $ itemIdentifier item
     return $ if "mathjax" `M.member` metadata
-             then "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
+             then "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML-AM_CHTML\"></script>"
              else ""
 
 onlyPublished :: MonadMetadata m => [Item a] -> m [Item a]
@@ -130,5 +130,5 @@ myWriterOptions = defaultHakyllWriterOptions {
       writerReferenceLinks = True
     , writerHtml5 = True
     , writerHighlight = True
-    , writerHTMLMathMethod = MathJax "http://cdn.mathjax.org/mathjax/latest/MathJax.js"
+    , writerHTMLMathMethod = MathJax "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"
     }

@@ -1,4 +1,7 @@
-Here are all my previous posts: 
-
-$partial("templates/post-list.html")$
-
+<ul>
+    $for(posts)$
+        <li class="post_item">
+            <a href="$url$">$title$</a> - <span class="soft">$date$</span>
+        </li>
+    $endfor$
+</ul>

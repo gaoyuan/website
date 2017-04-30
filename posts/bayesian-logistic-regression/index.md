@@ -3,6 +3,7 @@ title: Bayesian Logistic Regression
 date: 2015-05-23
 published: true
 author: gaoyuan
+image: img/fig13.png
 mathjax: on
 tags: bayesian machine learning, logistic regression, rejection sampling 
 ---
