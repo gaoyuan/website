@@ -106,7 +106,7 @@ mathCtx :: Context String
 mathCtx = field "mathjax" $ \item -> do
     metadata <- getMetadata $ itemIdentifier item
     return $ if "mathjax" `M.member` metadata
-             then "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML-AM_CHTML\"></script>"
+             then "<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
              else ""
 
 onlyPublished :: MonadMetadata m => [Item a] -> m [Item a]
