@@ -1,5 +1,8 @@
 body {
-    font-size: 16px;
+    font: 400 16px -apple-system, BlinkMacSystemFont, "Roboto", Helvetica, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     line-height: 25px;
     text-align: left;
 }
@@ -199,4 +202,13 @@ img {
     margin-bottom:0px;
     width:100%;
     height:245px
+}
+
+.article{
+  display: block;
+  color: rgba(0, 0, 0, 0.8);
+  font: 17px/1.55em -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  padding-bottom: 72px;
+  overflow: hidden;
+  background: white;
 }
