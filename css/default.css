@@ -194,14 +194,15 @@ img {
 .post h4{
     margin:0px;
     font-size:85%;
-    text-align:center
+    text-align:center;
+    vertial-align:bottom;
 }
 .post img{
     margin:0px;
     padding:2px;
     margin-bottom:0px;
     width:100%;
-    height:245px
+    height:245px;
 }
 
 .article{
